@@ -1,0 +1,26 @@
+/* line 26, ../sass/main.sass */
+html, body {
+  height: 100%;
+  width: 100%;
+  background-size: 100%;
+  font-family: "Lora", "Times New Roman", Times, serif;
+  padding: 0;
+}
+
+/* line 33, ../sass/main.sass */
+.header {
+  background-color: #0a0a0a;
+  height: 10%;
+}
+
+/* line 37, ../sass/main.sass */
+.content {
+  background-color: #121212;
+  height: 80%;
+}
+
+/* line 41, ../sass/main.sass */
+.footer {
+  background-color: #0a0a0a;
+  height: 10%;
+}

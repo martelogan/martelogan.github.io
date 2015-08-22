@@ -1,0 +1,43 @@
+@import "compass"
+@import "compass/layout"
+
+// declare fonts
+$headers: 'Lato', "Trebuchet MS", Helvetica, sans-serif
+$body-text: 'Lora', "Times New Roman", Times, serif
+$terminal-text: "Lucida Console", monospace
+
+// text size
+$body-size: 18px
+$headline-size: 3 * $body-size
+$subHeader-size: 1.5 * $body-size
+$byline-size: 0.75 * $body-size
+
+// leading and line-width
+$leading: 1.5
+$line-width: 540px
+
+// color scheme
+$dark: #000000
+$semi-dark: #0a0a0a
+$base-color: #121212
+$semi-light: #191919
+$light: #282828
+
+html, body
+	height: 100%
+	width: 100%
+	background-size: 100%
+	font-family: $body-text
+	padding: 0
+
+.header
+	background-color: $semi-dark
+	height: 10%
+
+.content
+	background-color: $base-color
+	height: 80%
+
+.footer
+	background-color: $semi-dark
+	height: 10%
