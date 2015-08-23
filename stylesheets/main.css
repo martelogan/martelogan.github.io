@@ -1,26 +1,176 @@
-/* line 26, ../sass/main.sass */
-html, body {
-  height: 100%;
-  width: 100%;
-  background-size: 100%;
-  font-family: "Lora", "Times New Roman", Times, serif;
+/* RESET DEFAULTS */
+/* courtesy of http://jaydenseric.com/ */
+/* line 2, ../sass/_reset.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 6, ../sass/_reset.scss */
+body {
+  margin: 0;
+  font: 16px/1 sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 12, ../sass/_reset.scss */
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul {
+  margin: 0;
   padding: 0;
 }
 
-/* line 33, ../sass/main.sass */
-.header {
-  background-color: #0a0a0a;
-  height: 10%;
+/* line 24, ../sass/_reset.scss */
+main,
+li {
+  display: block;
 }
 
-/* line 37, ../sass/main.sass */
-.content {
+/* line 28, ../sass/_reset.scss */
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+}
+
+/* line 34, ../sass/_reset.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 37, ../sass/_reset.scss */
+a,
+button {
+  color: inherit;
+  transition: .3s;
+}
+
+/* line 42, ../sass/_reset.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 45, ../sass/_reset.scss */
+button {
+  overflow: visible;
+  border: 0;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  letter-spacing: inherit;
+  background: none;
+  cursor: pointer;
+}
+
+/* line 54, ../sass/_reset.scss */
+::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* line 58, ../sass/_reset.scss */
+:focus {
+  outline: 0;
+}
+
+/* line 61, ../sass/_reset.scss */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+/* SET DEFAULT STRUCTURE */
+/* line 34, ../sass/main.sass */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Lora", "Times New Roman", Times, serif;
+}
+
+/* line 38, ../sass/main.sass */
+li {
+  list-style-type: none;
+}
+
+/* FORMAT SECTIONS */
+/* line 42, ../sass/main.sass */
+.header, .footer, .container {
+  position: relative;
+  width: 100%;
+}
+
+/* line 45, ../sass/main.sass */
+.header, .footer {
+  background-color: #0a0a0a;
+  height: 10%;
+  width: 100%;
+  left: 0;
+  z-index: 50;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+/* line 53, ../sass/main.sass */
+.header {
+  top: 0;
+}
+
+/* line 55, ../sass/main.sass */
+.footer {
+  bottom: 0;
+}
+
+/* line 57, ../sass/main.sass */
+.container {
   background-color: #121212;
   height: 80%;
 }
 
-/* line 41, ../sass/main.sass */
-.footer {
-  background-color: #0a0a0a;
-  height: 10%;
+/* HEADER */
+/* line 62, ../sass/main.sass */
+.nav, .logo {
+  position: absolute;
+  vertical-align: bottom;
+  color: #ededed;
+}
+
+/* line 67, ../sass/main.sass */
+.nav {
+  bottom: 0.5em;
+  right: 5vw;
+}
+
+/* line 70, ../sass/main.sass */
+.commands {
+  font-family: "Lora", "Times New Roman", Times, serif;
+  font-size: 24px;
+}
+
+/* line 73, ../sass/main.sass */
+.cmd {
+  display: inline;
+  margin: 0 0 0 3em;
+}
+
+/* line 77, ../sass/main.sass */
+.logo {
+  left: 0.5em;
+  bottom: 0;
+  font-family: "Lato", "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 48px;
+}
+
+/* line 82, ../sass/main.sass */
+.name {
+  display: inline;
+  margin: 0 0 0 0.4em;
 }

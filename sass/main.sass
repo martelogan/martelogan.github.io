@@ -1,13 +1,16 @@
 @import "compass"
 @import "compass/layout"
 
+/* RESET DEFAULTS */
+@import "reset"
+
 // declare fonts
 $headers: 'Lato', "Trebuchet MS", Helvetica, sans-serif
 $body-text: 'Lora', "Times New Roman", Times, serif
 $terminal-text: "Lucida Console", monospace
 
 // text size
-$body-size: 18px
+$body-size: 16px
 $headline-size: 3 * $body-size
 $subHeader-size: 1.5 * $body-size
 $byline-size: 0.75 * $body-size
@@ -23,21 +26,59 @@ $base-color: #121212
 $semi-light: #191919
 $light: #282828
 
+// functions
+@function fluidize($target, $context)
+	@return percentage($target/$context)
+
+/* SET DEFAULT STRUCTURE */
 html, body
 	height: 100%
 	width: 100%
-	background-size: 100%
 	font-family: $body-text
-	padding: 0
+li
+	list-style-type: none
 
-.header
+/* FORMAT SECTIONS */
+.header, .footer, .container
+	position: relative
+	width: 100%
+.header, .footer
 	background-color: $semi-dark
 	height: 10%
-
-.content
+	width: 100%
+	left: 0
+	z-index: 50
+	text-decoration: none
+	line-height: $leading
+.header
+	top: 0
+.footer
+	bottom: 0
+.container
 	background-color: $base-color
 	height: 80%
 
-.footer
-	background-color: $semi-dark
-	height: 10%
+/* HEADER */
+.nav, .logo
+	position: absolute
+	vertical-align: bottom
+	color: invert($base-color)
+
+.nav
+	bottom: 0.5em
+	right: 5vw
+.commands
+	font-family: $body-text
+	font-size: $subHeader-size
+.cmd
+	display: inline
+	margin: 0 0 0 3em
+
+.logo
+	left: 0.5em
+	bottom: 0
+	font-family: $headers
+	font-size: $headline-size
+.name
+	display: inline
+	margin: 0 0 0 0.4em
