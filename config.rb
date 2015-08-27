@@ -15,6 +15,8 @@ javascripts_dir = "javascripts"
 # relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
-# line_comments = false
+line_comments = false
 
 preferred_syntax = :sass
+
+sass_options = {:sourcemap => true}

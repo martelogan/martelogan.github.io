@@ -1,12 +1,10 @@
 /* RESET DEFAULTS */
 /* courtesy of http://jaydenseric.com/ */
-/* line 2, ../sass/_reset.scss */
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
-/* line 6, ../sass/_reset.scss */
 body {
   margin: 0;
   font: 16px/1 sans-serif;
@@ -14,7 +12,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 12, ../sass/_reset.scss */
 h1,
 h2,
 h3,
@@ -28,13 +25,11 @@ ul {
   padding: 0;
 }
 
-/* line 24, ../sass/_reset.scss */
 main,
 li {
   display: block;
 }
 
-/* line 28, ../sass/_reset.scss */
 h1,
 h2,
 h3,
@@ -42,24 +37,20 @@ h4 {
   font-size: inherit;
 }
 
-/* line 34, ../sass/_reset.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 37, ../sass/_reset.scss */
 a,
 button {
   color: inherit;
   transition: .3s;
 }
 
-/* line 42, ../sass/_reset.scss */
 a {
   text-decoration: none;
 }
 
-/* line 45, ../sass/_reset.scss */
 button {
   overflow: visible;
   border: 0;
@@ -70,18 +61,15 @@ button {
   cursor: pointer;
 }
 
-/* line 54, ../sass/_reset.scss */
 ::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
 
-/* line 58, ../sass/_reset.scss */
 :focus {
   outline: 0;
 }
 
-/* line 61, ../sass/_reset.scss */
 img {
   max-width: 100%;
   height: auto;
@@ -89,26 +77,25 @@ img {
 }
 
 /* SET DEFAULT STRUCTURE */
-/* line 34, ../sass/main.sass */
 html, body {
   height: 100%;
   width: 100%;
   font-family: "Lora", "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: #ededed;
+  line-height: 1.5;
 }
 
-/* line 38, ../sass/main.sass */
 li {
   list-style-type: none;
 }
 
 /* FORMAT SECTIONS */
-/* line 42, ../sass/main.sass */
-.header, .footer, .container {
+.header, .footer, .content {
   position: relative;
   width: 100%;
 }
 
-/* line 45, ../sass/main.sass */
 .header, .footer {
   background-color: #0a0a0a;
   height: 10%;
@@ -116,52 +103,48 @@ li {
   left: 0;
   z-index: 50;
   text-decoration: none;
-  line-height: 1.5;
 }
 
-/* line 53, ../sass/main.sass */
 .header {
   top: 0;
 }
 
-/* line 55, ../sass/main.sass */
 .footer {
   bottom: 0;
 }
 
-/* line 57, ../sass/main.sass */
-.container {
+.content {
   background-color: #121212;
   height: 80%;
 }
 
 /* HEADER */
-/* line 62, ../sass/main.sass */
 .nav, .logo {
   position: absolute;
   vertical-align: bottom;
   color: #ededed;
 }
 
-/* line 67, ../sass/main.sass */
 .nav {
   bottom: 0.5em;
   right: 5vw;
 }
 
-/* line 70, ../sass/main.sass */
 .commands {
-  font-family: "Lora", "Times New Roman", Times, serif;
   font-size: 24px;
 }
 
-/* line 73, ../sass/main.sass */
 .cmd {
   display: inline;
-  margin: 0 0 0 3em;
+  margin: 0 0 0 1em;
+}
+.cmd a {
+  padding: 50% 1em 1.8% 1em;
+}
+.cmd a:hover {
+  background-color: #282828;
 }
 
-/* line 77, ../sass/main.sass */
 .logo {
   left: 0.5em;
   bottom: 0;
@@ -169,8 +152,110 @@ li {
   font-size: 48px;
 }
 
-/* line 82, ../sass/main.sass */
 .name {
   display: inline;
   margin: 0 0 0 0.4em;
 }
+
+/* CONTENT */
+.terminal {
+  position: absolute;
+  margin: 1em 1em 0em 1em;
+  background-color: black;
+  height: 95%;
+  width: 35%;
+  font-family: "Lucida Console", monospace;
+  font-size: 12px;
+  color: #d7d7d7;
+  border: 1px solid #aeaeae;
+  border-top: none;
+}
+.terminal .top {
+  height: 2.5%;
+  width: 100%;
+  position: relative;
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #282828), color-stop(100%, #aeaeae));
+  background: -webkit-linear-gradient(bottom, #282828, #aeaeae);
+  background: -moz-linear-gradient(bottom, #282828, #aeaeae);
+  background: -o-linear-gradient(bottom, #282828, #aeaeae);
+  background: linear-gradient(bottom, #282828, #aeaeae);
+}
+.terminal .top .dir {
+  color: black;
+  font-size: 10px;
+  position: absolute;
+  bottom: 0;
+  margin-left: 2%;
+}
+.terminal .shell {
+  height: 97.5%;
+  width: 100%;
+}
+.terminal p {
+  margin: 4px;
+}
+
+.context {
+  position: absolute;
+  height: 95%;
+  width: 55%;
+  left: 40%;
+  margin: 0em 0em 1em 1em;
+}
+.context h1 {
+  font-family: "Lato", "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 48px;
+}
+.context p {
+  width: 540px;
+  margin-top: 1em;
+  float: left;
+}
+.context .top, .context .bottom {
+  width: 100%;
+  position: relative;
+}
+.context .top {
+  height: 38%;
+}
+.context .bottom {
+  margin-top: 2%;
+  height: 60%;
+}
+.context #skills, .context #contact {
+  display: none;
+}
+
+.me {
+  position: absolute;
+  height: 150px;
+  width: 115px;
+  border-radius: 30px;
+  margin-left: 12.5%;
+  bottom: 13%;
+}
+
+/* FOOTER */
+.footer ul {
+  text-align: center;
+}
+
+.footer li {
+  display: inline;
+}
+
+#email {
+  opacity: 0.3;
+}
+
+.icon {
+  height: 48px;
+  width: 48px;
+  margin: 0.8% 12% 0 12%;
+  opacity: 0.5;
+}
+.icon:hover {
+  opacity: 1;
+}
+
+/*@ sourceMappingURL=main.css.map */

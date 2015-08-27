@@ -5,13 +5,13 @@
 @import "reset"
 
 // declare fonts
-$headers: 'Lato', "Trebuchet MS", Helvetica, sans-serif
+$header-text: 'Lato', "Trebuchet MS", Helvetica, sans-serif
 $body-text: 'Lora', "Times New Roman", Times, serif
 $terminal-text: "Lucida Console", monospace
 
 // text size
 $body-size: 16px
-$headline-size: 3 * $body-size
+$header-size: 3 * $body-size
 $subHeader-size: 1.5 * $body-size
 $byline-size: 0.75 * $body-size
 
@@ -26,6 +26,11 @@ $base-color: #121212
 $semi-light: #191919
 $light: #282828
 
+// terminal gradient
+$terminal-gradient: rgb(174, 174, 174)
+
+// $test-border: #2a6983
+
 // functions
 @function fluidize($target, $context)
 	@return percentage($target/$context)
@@ -35,11 +40,14 @@ html, body
 	height: 100%
 	width: 100%
 	font-family: $body-text
+	font-size: $body-size
+	color: invert($base-color)
+	line-height: $leading
 li
 	list-style-type: none
 
 /* FORMAT SECTIONS */
-.header, .footer, .container
+.header, .footer, .content
 	position: relative
 	width: 100%
 .header, .footer
@@ -49,12 +57,11 @@ li
 	left: 0
 	z-index: 50
 	text-decoration: none
-	line-height: $leading
 .header
 	top: 0
 .footer
 	bottom: 0
-.container
+.content
 	background-color: $base-color
 	height: 80%
 
@@ -68,17 +75,99 @@ li
 	bottom: 0.5em
 	right: 5vw
 .commands
-	font-family: $body-text
 	font-size: $subHeader-size
 .cmd
 	display: inline
-	margin: 0 0 0 3em
+	margin: 0 0 0 1em
+	a
+		padding: 50% 1em 1.8% 1em
+		&:hover
+			background-color: $light
+
 
 .logo
 	left: 0.5em
 	bottom: 0
-	font-family: $headers
-	font-size: $headline-size
+	font-family: $header-text
+	font-size: $header-size
 .name
 	display: inline
 	margin: 0 0 0 0.4em
+
+/* CONTENT */
+
+.terminal
+	position: absolute
+	margin: 1em 1em 0em 1em
+	background-color: $dark
+	height: 95%
+	width: 35%
+	font-family: $terminal-text
+	font-size: $byline-size
+	color: invert($light)
+	border: 1px solid $terminal-gradient
+	border-top: none
+
+	.top
+		height: 2.5%
+		width: 100%
+		position: relative
+		+background(linear-gradient(bottom, $light, $terminal-gradient))
+		.dir
+			color: $dark
+			font-size: 10px
+			position: absolute
+			bottom: 0
+			margin-left: 2%
+	.shell
+		height: 97.5%
+		width: 100%
+	p
+		margin: 4px
+.context
+	position: absolute
+	height: 95%
+	width: 55%
+	left: 40%
+	margin: 0em 0em 1em 1em
+	h1
+		font-family: $header-text
+		font-size: $header-size
+	p
+		width: $line-width
+		margin-top: 1em
+		float: left
+	.top, .bottom
+		width: 100%
+		position: relative
+	.top
+		height: 38%
+	.bottom
+		margin-top: 2%
+		height: 60%
+
+	#skills, #contact
+		display: none
+.me
+	position: absolute
+	height: image-height("Me.jpg")
+	width: image-width("Me.jpg")
+	border-radius: 30px
+	margin-left: 12.5%
+	bottom: 13%
+
+/* FOOTER */
+.footer ul
+	text-align: center
+.footer li
+	display: inline
+
+#email
+	opacity: 0.3
+.icon
+	height: 48px
+	width: 48px
+	margin: 0.8% 12% 0 12%
+	opacity: 0.5
+	&:hover
+		opacity: 1
