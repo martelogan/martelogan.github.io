@@ -45,6 +45,15 @@ html, body
 	line-height: $leading
 li
 	list-style-type: none
+input
+	border: 0
+	padding: 0
+	background-color: $dark
+	color: invert($dark)
+	font-family: $terminal-text
+	font-size: $byline-size
+input:focus
+	outline: none
 
 /* FORMAT SECTIONS */
 .header, .footer, .content
@@ -52,7 +61,7 @@ li
 	width: 100%
 .header, .footer
 	background-color: $semi-dark
-	height: 10%
+	height: 13%
 	width: 100%
 	left: 0
 	z-index: 50
@@ -63,13 +72,14 @@ li
 	bottom: 0
 .content
 	background-color: $base-color
-	height: 80%
+	height: 74%
 
 /* HEADER */
 .nav, .logo
 	position: absolute
 	vertical-align: bottom
 	color: invert($base-color)
+	display: none
 
 .nav
 	bottom: 0.5em
@@ -104,7 +114,7 @@ li
 	width: 35%
 	font-family: $terminal-text
 	font-size: $byline-size
-	color: invert($light)
+	color: invert($dark)
 	border: 1px solid $terminal-gradient
 	border-top: none
 
@@ -122,8 +132,9 @@ li
 	.shell
 		height: 97.5%
 		width: 100%
-	p
-		margin: 4px
+		overflow-y: auto
+		.text
+			margin: 4px
 .context
 	position: absolute
 	height: 95%
@@ -146,7 +157,7 @@ li
 		margin-top: 2%
 		height: 60%
 
-	#skills, #contact
+	#about, #projects, #skills, #contact
 		display: none
 .me
 	position: absolute
@@ -159,15 +170,29 @@ li
 /* FOOTER */
 .footer ul
 	text-align: center
+	display: none
 .footer li
 	display: inline
 
-#email
+=img-sizing($location)
+	height: image-height($location)
+	width: image-width($location)
+
+a#github
+	opacity: 0.5
+a#email
+	opacity: 0.95
+a#linkedin
 	opacity: 0.3
 .icon
-	height: 48px
-	width: 48px
 	margin: 0.8% 12% 0 12%
-	opacity: 0.5
+	opacity: 0.8
+	height: 54px
+	width: 54px
 	&:hover
 		opacity: 1
+	&#linkedin
+		+img-sizing("linkedin.png")
+	&#github
+		+img-sizing("github.png")
+	
