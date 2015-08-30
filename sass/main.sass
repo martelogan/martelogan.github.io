@@ -31,9 +31,13 @@ $terminal-gradient: rgb(174, 174, 174)
 
 // $test-border: #2a6983
 
-// functions
+// functions and mixins
 @function fluidize($target, $context)
 	@return percentage($target/$context)
+
+=img-sizing($location, $pheight, $pwidth)
+	height: fluidize(image-height($location), $pheight)
+	width: fluidize(image-width($location), $pwidth)
 
 /* SET DEFAULT STRUCTURE */
 html, body
@@ -54,6 +58,9 @@ input
 	font-size: $byline-size
 input:focus
 	outline: none
+iframe
+	display: none
+
 
 /* FORMAT SECTIONS */
 .header, .footer, .content
@@ -85,14 +92,15 @@ input:focus
 	bottom: 0.5em
 	right: 5vw
 .commands
+	font-family: $header-text
 	font-size: $subHeader-size
-.cmd
-	display: inline
-	margin: 0 0 0 1em
-	a
-		padding: 50% 1em 1.8% 1em
-		&:hover
-			background-color: $light
+	.cmd
+		display: inline
+		margin: 0 0 0 1em
+		a
+			padding: 50% 1em 2.1% 1em
+			&:hover
+				background-color: $light
 
 
 .logo
@@ -106,6 +114,7 @@ input:focus
 
 /* CONTENT */
 
+/* TERMINAL AREA */
 .terminal
 	position: absolute
 	margin: 1em 1em 0em 1em
@@ -135,6 +144,8 @@ input:focus
 		overflow-y: auto
 		.text
 			margin: 4px
+
+/* ACTIVE CONTENT */
 .context
 	position: absolute
 	height: 95%
@@ -146,26 +157,73 @@ input:focus
 		font-size: $header-size
 	p
 		width: $line-width
-		margin-top: 1em
+		margin-top: 0.5em
 		float: left
 	.top, .bottom
 		width: 100%
 		position: relative
 	.top
-		height: 38%
+		height: 43%
 	.bottom
 		margin-top: 2%
-		height: 60%
-
-	#about, #projects, #skills, #contact
+		height: 55%
+	
+	/* CONTENT TYPES */
+	#about, #projects, #skills, #resume
 		display: none
-.me
-	position: absolute
-	height: image-height("Me.jpg")
-	width: image-width("Me.jpg")
-	border-radius: 30px
-	margin-left: 12.5%
-	bottom: 13%
+		overflow: hidden
+
+	#about
+		.me
+			height: image-height("Me.jpg")
+			width: image-width("Me.jpg")
+			position: absolute
+			border-radius: 30px
+			margin-left: 12.5%
+			bottom: 10%
+
+
+	#projects
+		ul
+			margin-top: 4%
+		li
+			display: inline-block
+			position: absolute
+			opacity: 0.7
+		li:hover
+			opacity: 1 
+		li#zazz
+			left: 0
+			width: 40%
+			margin-top: 2%
+			img
+				+img-sizing("Zazz.png", 78px, 232.531px)
+		li#imGrab
+			right: 5%
+			bottom: 5%
+			img
+				+img-sizing("imGrab.png", 78px, 232.531px)
+				border-radius: 30px
+	#skills
+		ul
+			margin-top: 2%
+		li
+			font-family: $header-text
+			display: inline-block
+			width: 30%
+			margin: 0 3% 1% 0
+			.rating
+				margin-left: 5%
+
+	#resume
+		.view, .download
+			font-size: $subHeader-size
+			display: inline-block
+			margin-top: 5%
+		.download
+			margin-left: 20%
+		.view:hover, .download:hover
+			text-decoration: underline
 
 /* FOOTER */
 .footer ul
@@ -173,10 +231,6 @@ input:focus
 	display: none
 .footer li
 	display: inline
-
-=img-sizing($location)
-	height: image-height($location)
-	width: image-width($location)
 
 a#github
 	opacity: 0.5
@@ -192,7 +246,9 @@ a#linkedin
 	&:hover
 		opacity: 1
 	&#linkedin
-		+img-sizing("linkedin.png")
+		height: image-height("linkedin.png")
+		width: image-width("linkedin.png")
 	&#github
-		+img-sizing("github.png")
+		height: image-height("github.png")
+		width: image-width("github.png")
 	

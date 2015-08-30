@@ -1,6 +1,6 @@
 $(document).ready ->
 	$(document).on "go", ->
-		$('.footer ul').fadeIn "slow", ->
+		$('.footer ul').fadeIn 260, ->
 			$('.logo').fadeIn "slow", ->
 				$('.nav').fadeIn "slow", ->
 					$(document).trigger('done')
@@ -15,10 +15,25 @@ $(document).ready ->
 		input = $('input#command').last()
 		input.focus()
 
+
+	$('a#kitimat').on 'mouseenter', ->
+		$('iframe#kitimat').show()
+		$('.shell .text').hide()
+	$('a#kitimat').on 'mouseleave', ->
+		$('iframe#kitimat').hide()
+		$('.shell .text').show()
+	$('a#montreal').on 'mouseenter', ->
+		$('iframe#montreal').show()
+		$('.shell .text').hide()
+	$('a#montreal').on 'mouseleave', ->
+		$('iframe#montreal').hide()
+		$('.shell .text').show()
+
+
 	about = $('#about')
 	projects = $('#projects')
 	skills = $('#skills')
-	contact = $('#contact')
+	resume = $('#resume')
 
 	$(document).on 'about', ->
 		return if about.hasClass('active')
@@ -37,16 +52,16 @@ $(document).ready ->
 
 	$(document).on 'projects', ->
 		return if projects.hasClass('active')
-		if contact.hasClass('active')
-			contact.fadeOut('fast').removeClass('active')
+		if resume.hasClass('active')
+			resume.fadeOut('fast').removeClass('active')
 			setTimeout (-> projects.fadeIn().addClass('active')), 200
 		else 
 			projects.fadeIn().addClass('active')
 
-	$(document).on 'contact', ->
-		return if contact.hasClass('active')
+	$(document).on 'resume', ->
+		return if resume.hasClass('active')
 		if projects.hasClass('active')
 			projects.fadeOut('fast').removeClass('active')
-			setTimeout (-> contact.fadeIn().addClass('active')), 200
+			setTimeout (-> resume.fadeIn().addClass('active')), 200
 		else 
-			contact.fadeIn().addClass('active')
+			resume.fadeIn().addClass('active')

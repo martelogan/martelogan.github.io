@@ -103,6 +103,10 @@ input:focus {
   outline: none;
 }
 
+iframe {
+  display: none;
+}
+
 /* FORMAT SECTIONS */
 .header, .footer, .content {
   position: relative;
@@ -145,17 +149,17 @@ input:focus {
 }
 
 .commands {
+  font-family: "Lato", "Trebuchet MS", Helvetica, sans-serif;
   font-size: 24px;
 }
-
-.cmd {
+.commands .cmd {
   display: inline;
   margin: 0 0 0 1em;
 }
-.cmd a {
-  padding: 50% 1em 1.8% 1em;
+.commands .cmd a {
+  padding: 50% 1em 2.1% 1em;
 }
-.cmd a:hover {
+.commands .cmd a:hover {
   background-color: #282828;
 }
 
@@ -172,6 +176,7 @@ input:focus {
 }
 
 /* CONTENT */
+/* TERMINAL AREA */
 .terminal {
   position: absolute;
   margin: 1em 1em 0em 1em;
@@ -210,12 +215,14 @@ input:focus {
   margin: 4px;
 }
 
+/* ACTIVE CONTENT */
 .context {
   position: absolute;
   height: 95%;
   width: 55%;
   left: 40%;
   margin: 0em 0em 1em 1em;
+  /* CONTENT TYPES */
 }
 .context h1 {
   font-family: "Lato", "Trebuchet MS", Helvetica, sans-serif;
@@ -223,7 +230,7 @@ input:focus {
 }
 .context p {
   width: 540px;
-  margin-top: 1em;
+  margin-top: 0.5em;
   float: left;
 }
 .context .top, .context .bottom {
@@ -231,23 +238,75 @@ input:focus {
   position: relative;
 }
 .context .top {
-  height: 38%;
+  height: 43%;
 }
 .context .bottom {
   margin-top: 2%;
-  height: 60%;
+  height: 55%;
 }
-.context #about, .context #projects, .context #skills, .context #contact {
+.context #about, .context #projects, .context #skills, .context #resume {
   display: none;
+  overflow: hidden;
 }
-
-.me {
-  position: absolute;
+.context #about .me {
   height: 150px;
   width: 115px;
+  position: absolute;
   border-radius: 30px;
   margin-left: 12.5%;
-  bottom: 13%;
+  bottom: 10%;
+}
+.context #projects ul {
+  margin-top: 4%;
+}
+.context #projects li {
+  display: inline-block;
+  position: absolute;
+  opacity: 0.7;
+}
+.context #projects li:hover {
+  opacity: 1;
+}
+.context #projects li#zazz {
+  left: 0;
+  width: 40%;
+  margin-top: 2%;
+}
+.context #projects li#zazz img {
+  height: 155.12821%;
+  width: 168.57967%;
+}
+.context #projects li#imGrab {
+  right: 5%;
+  bottom: 5%;
+}
+.context #projects li#imGrab img {
+  height: 269.23077%;
+  width: 141.91656%;
+  border-radius: 30px;
+}
+.context #skills ul {
+  margin-top: 2%;
+}
+.context #skills li {
+  font-family: "Lato", "Trebuchet MS", Helvetica, sans-serif;
+  display: inline-block;
+  width: 30%;
+  margin: 0 3% 1% 0;
+}
+.context #skills li .rating {
+  margin-left: 5%;
+}
+.context #resume .view, .context #resume .download {
+  font-size: 24px;
+  display: inline-block;
+  margin-top: 5%;
+}
+.context #resume .download {
+  margin-left: 20%;
+}
+.context #resume .view:hover, .context #resume .download:hover {
+  text-decoration: underline;
 }
 
 /* FOOTER */

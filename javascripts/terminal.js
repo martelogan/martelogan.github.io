@@ -6,16 +6,17 @@
     var command_line;
 
     function Terminal(target, PS1, welcome, guide, commands, broadcasts) {
-      var command, history, i, index, instance, len, ref;
+      var command, hidden_commands, history, i, index, instance, len, ref;
       this.target = target != null ? target : ".shell .text";
       this.PS1 = PS1 != null ? PS1 : "$ ";
       this.welcome = welcome != null ? welcome : "./hello_friend";
       this.guide = guide != null ? guide : "Run 'help' for basic commands";
-      this.commands = commands != null ? commands : ["about", "projects", "skills", "contact"];
-      this.broadcasts = broadcasts != null ? broadcasts : ["about", "projects", "skills", "contact"];
+      this.commands = commands != null ? commands : ["about", "projects", "skills", "resume"];
+      this.broadcasts = broadcasts != null ? broadcasts : ["about", "projects", "skills", "resume"];
       instance = this;
       history = [];
       index = history.length;
+      hidden_commands = ["help", "clear"];
       ref = this.broadcasts;
       for (i = 0, len = ref.length; i < len; i++) {
         command = ref[i];
@@ -51,32 +52,32 @@
         }
       });
       $(document).keydown(function(e) {
-        var input, j, k, len1, len2, option, options, ref1, results, str;
+        var input, j, k, len1, len2, option, options, results, results1, str;
         if (e.which === 9) {
           e.preventDefault();
           input = $('input#command').last();
           str = input.val();
-          options = [];
-          ref1 = instance.commands;
-          for (j = 0, len1 = ref1.length; j < len1; j++) {
-            command = ref1[j];
+          options = hidden_commands.concat(instance.commands);
+          results = [];
+          for (j = 0, len1 = options.length; j < len1; j++) {
+            command = options[j];
             if (command.substr(0, str.length) === str) {
-              options.push(command);
+              results.push(command);
             }
           }
-          if (options.length === 0) {
+          if (results.length === 0) {
 
-          } else if (options.length === 1) {
-            return input.val(options[0]);
+          } else if (results.length === 1) {
+            return input.val(results[0]);
           }
           instance.print("<br>");
-          results = [];
-          for (k = 0, len2 = options.length; k < len2; k++) {
-            option = options[k];
+          results1 = [];
+          for (k = 0, len2 = results.length; k < len2; k++) {
+            option = results[k];
             instance.print(option + "<br>");
-            results.push(instance.newline);
+            results1.push(instance.newline);
           }
-          return results;
+          return results1;
         }
       });
       $(document.body).on('keyup', 'input#command', function(e) {
@@ -144,14 +145,14 @@
     };
 
     Terminal.prototype.help = function() {
-      var command, i, len, ref, results;
+      var command, i, len, ref, results1;
       ref = this.commands;
-      results = [];
+      results1 = [];
       for (i = 0, len = ref.length; i < len; i++) {
         command = ref[i];
-        results.push(this.print(command + "<br>"));
+        results1.push(this.print(command + "<br>"));
       }
-      return results;
+      return results1;
     };
 
     Terminal.prototype.broadcast = function(event) {

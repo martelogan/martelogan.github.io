@@ -6,17 +6,18 @@ class Terminal
 	,	@PS1="$ " 
 	,	@welcome="./hello_friend"
 	,	@guide="Run 'help' for basic commands"
-	,	@commands= ["about", "projects", "skills", "contact"]
-	,	@broadcasts= ["about", "projects", "skills", "contact"]
+	,	@commands= ["about", "projects", "skills", "resume"]
+	,	@broadcasts= ["about", "projects", "skills", "resume"]
 	) ->
 		instance = @
 		history = []
 		index = history.length
+		hidden_commands = ["help", "clear"]
 
 		# build basic broadcasting commands
 		(instance[command] = -> instance["broadcast"](command)) for command in @broadcasts
 		
-		# enable ctrl + l to clear terminal
+		# enable ctrl + l to clear terminalinte
 		$(document).keydown (e) ->
 			if e.which == 76 && e.ctrlKey
 				e.preventDefault()
@@ -43,18 +44,19 @@ class Terminal
 				e.preventDefault()
 				input = $('input#command').last()
 				str = input.val()
-				options = []
-				for command in instance.commands
+				options = hidden_commands.concat(instance.commands)
+				results = []
+				for command in options
 					if command.substr(0, str.length) is str
-						options.push(command)
+						results.push(command)
 				
-				return if options.length is 0
+				return if results.length is 0
 				
-				else if options.length is 1
-					return input.val(options[0])
+				else if results.length is 1
+					return input.val(results[0])
 
 				instance.print("<br>")
-				for option in options
+				for option in results
 					instance.print ("#{option}<br>")
 					instance.newline
 
