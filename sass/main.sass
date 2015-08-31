@@ -29,8 +29,6 @@ $light: #282828
 // terminal gradient
 $terminal-gradient: rgb(174, 174, 174)
 
-// $test-border: #2a6983
-
 // functions and mixins
 @function fluidize($target, $context)
 	@return percentage($target/$context)
@@ -59,6 +57,10 @@ input
 input:focus
 	outline: none
 iframe
+	display: none
+h1
+	font-family: $header-text
+.alternate
 	display: none
 
 
@@ -90,9 +92,9 @@ iframe
 
 .nav
 	bottom: 0.5em
-	right: 5vw
-.commands
+	right: 5%
 	font-family: $header-text
+.commands
 	font-size: $subHeader-size
 	.cmd
 		display: inline
@@ -162,6 +164,7 @@ iframe
 	.top, .bottom
 		width: 100%
 		position: relative
+		overflow: auto
 	.top
 		height: 43%
 	.bottom
@@ -184,22 +187,24 @@ iframe
 
 
 	#projects
-		ul
+		height: 100%
+		width: 100%
+		a
 			margin-top: 4%
-		li
 			display: inline-block
 			position: absolute
 			opacity: 0.7
-		li:hover
+		a:hover
 			opacity: 1 
-		li#zazz
+		a#zazz
 			left: 0
 			width: 40%
 			margin-top: 2%
+			bottom: 15%
 			img
 				+img-sizing("Zazz.png", 78px, 232.531px)
-		li#imGrab
-			right: 5%
+		a#imGrab
+			right: 2%
 			bottom: 5%
 			img
 				+img-sizing("imGrab.png", 78px, 232.531px)
@@ -251,4 +256,14 @@ a#linkedin
 	&#github
 		height: image-height("github.png")
 		width: image-width("github.png")
-	
+
+@media (max-width: 1100px)
+	.terminal
+		display: none
+	.context
+		width: 100%
+		left: 0
+	.alternate
+		display: block
+		font-size: $header-text
+		top: 10%

@@ -36,6 +36,7 @@ $(document).ready ->
 	resume = $('#resume')
 
 	$(document).on 'about', ->
+		$('.alternate').hide()
 		return if about.hasClass('active')
 		if skills.hasClass('active')
 			skills.fadeOut('fast').removeClass('active')
@@ -43,6 +44,7 @@ $(document).ready ->
 		else 
 			about.fadeIn().addClass('active')
 	$(document).on 'skills', ->
+		$('.alternate').hide()
 		return if skills.hasClass('active')
 		if about.hasClass('active')
 			about.fadeOut('fast').removeClass('active')
@@ -51,6 +53,7 @@ $(document).ready ->
 			skills.fadeIn().addClass('active')
 
 	$(document).on 'projects', ->
+		$('.alternate').hide()
 		return if projects.hasClass('active')
 		if resume.hasClass('active')
 			resume.fadeOut('fast').removeClass('active')
@@ -59,6 +62,7 @@ $(document).ready ->
 			projects.fadeIn().addClass('active')
 
 	$(document).on 'resume', ->
+		$('.alternate').hide()
 		return if resume.hasClass('active')
 		if projects.hasClass('active')
 			projects.fadeOut('fast').removeClass('active')

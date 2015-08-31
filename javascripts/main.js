@@ -44,6 +44,7 @@
     skills = $('#skills');
     resume = $('#resume');
     $(document).on('about', function() {
+      $('.alternate').hide();
       if (about.hasClass('active')) {
         return;
       }
@@ -57,6 +58,7 @@
       }
     });
     $(document).on('skills', function() {
+      $('.alternate').hide();
       if (skills.hasClass('active')) {
         return;
       }
@@ -70,6 +72,7 @@
       }
     });
     $(document).on('projects', function() {
+      $('.alternate').hide();
       if (projects.hasClass('active')) {
         return;
       }
@@ -83,6 +86,7 @@
       }
     });
     return $(document).on('resume', function() {
+      $('.alternate').hide();
       if (resume.hasClass('active')) {
         return;
       }
