@@ -163,6 +163,14 @@
       return $(this.target).empty();
     };
 
+    Terminal.prototype.interests = function() {
+      this.print("Atm, I'm looking for projects in:<br>");
+      this.print("data science (esp. data mining)<br>");
+      this.print("biotech<br>");
+      this.print("back-end (mobile or web)<br>");
+      return this.print("Shoot me an email if you have a project for me!");
+    };
+
     return Terminal;
 
   })();

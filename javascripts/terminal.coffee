@@ -115,5 +115,12 @@ class Terminal
 	clear: ->
 		$(@target).empty()
 
+	interests: ->
+		@print("Atm, I'm looking for projects in:<br>")
+		@print("data science (esp. data mining)<br>")
+		@print("biotech<br>")
+		@print("back-end (mobile or web)<br>")
+		@print("Shoot me an email if you have a project for me!")
+
 terminal = new Terminal()
 terminal.init()
