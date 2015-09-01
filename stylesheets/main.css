@@ -96,7 +96,7 @@ input {
   background-color: black;
   color: white;
   font-family: "Lucida Console", monospace;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 input:focus {
@@ -159,6 +159,7 @@ h1 {
 
 .commands {
   font-size: 24px;
+  font-weight: bold;
 }
 .commands .cmd {
   display: inline;
@@ -192,7 +193,7 @@ h1 {
   height: 95%;
   width: 35%;
   font-family: "Lucida Console", monospace;
-  font-size: 12px;
+  font-size: 14px;
   color: white;
   border: 1px solid #aeaeae;
   border-top: none;
@@ -247,11 +248,11 @@ h1 {
   overflow: auto;
 }
 .context .top {
-  height: 43%;
+  height: 46%;
 }
 .context .bottom {
   margin-top: 2%;
-  height: 55%;
+  height: 53%;
 }
 .context #about, .context #projects, .context #skills, .context #resume {
   display: none;

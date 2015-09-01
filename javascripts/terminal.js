@@ -5,18 +5,18 @@
   Terminal = (function() {
     var command_line;
 
-    function Terminal(target, PS1, welcome, guide, commands, broadcasts) {
-      var command, hidden_commands, history, i, index, instance, len, ref;
+    function Terminal(target, PS1, welcome, guide, commands, broadcasts, secrets) {
+      var command, history, i, index, instance, len, ref;
       this.target = target != null ? target : ".shell .text";
       this.PS1 = PS1 != null ? PS1 : "$ ";
       this.welcome = welcome != null ? welcome : "./hello_friend";
       this.guide = guide != null ? guide : "Run 'help' for basic commands";
-      this.commands = commands != null ? commands : ["about", "projects", "skills", "resume"];
+      this.commands = commands != null ? commands : ["about", "projects", "skills", "resume", "interests", "clear", "ls", "help"];
       this.broadcasts = broadcasts != null ? broadcasts : ["about", "projects", "skills", "resume"];
+      this.secrets = secrets != null ? secrets : ["gandalf"];
       instance = this;
       history = [];
       index = history.length;
-      hidden_commands = ["help", "clear"];
       ref = this.broadcasts;
       for (i = 0, len = ref.length; i < len; i++) {
         command = ref[i];
@@ -43,7 +43,6 @@
           if (code === 40 && index + 1 <= history.length) {
             index++;
           }
-          console.log(index);
           if ((0 <= index && index < history.length)) {
             return input.val(history[index]);
           } else {
@@ -57,7 +56,7 @@
           e.preventDefault();
           input = $('input#command').last();
           str = input.val();
-          options = hidden_commands.concat(instance.commands);
+          options = instance.commands.concat(instance.secrets);
           results = [];
           for (j = 0, len1 = options.length; j < len1; j++) {
             command = options[j];
@@ -91,7 +90,11 @@
             if (command === "init" || command === "newline") {
               throw "no h4x0rs allowed!";
             }
-            instance["" + command]();
+            if (command.substr(0, 2) === "cd") {
+              console.log(instance["cd"]());
+            } else {
+              instance["" + command]();
+            }
             history.push(command);
             return index = history.length;
           } catch (_error) {
@@ -107,7 +110,7 @@
       });
     }
 
-    command_line = '<input type="text" id="command" value="">';
+    command_line = '<input type="text" id="command" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">';
 
     Terminal.prototype.init = function() {
       return this.greet(this.welcome, 0, 100);
@@ -150,7 +153,9 @@
       results1 = [];
       for (i = 0, len = ref.length; i < len; i++) {
         command = ref[i];
-        results1.push(this.print(command + "<br>"));
+        if (command !== "help") {
+          results1.push(this.print(command + "<br>"));
+        }
       }
       return results1;
     };
@@ -164,11 +169,31 @@
     };
 
     Terminal.prototype.interests = function() {
-      this.print("Atm, I'm looking for projects in:<br>");
+      this.print("Hey, I'm looking for projects in:<br>");
       this.print("data science (esp. data mining)<br>");
-      this.print("biotech<br>");
       this.print("back-end (mobile or web)<br>");
-      return this.print("Shoot me an email if you have a project for me!");
+      this.print("biotech (esp. bioinformatics)<br>");
+      return this.print("Shoot me an email if you want to work together!");
+    };
+
+    Terminal.prototype.ls = function() {
+      var command, i, len, ref, results1;
+      this.print("Hey, secret commands will be updated here as they are added:<br>");
+      ref = this.secrets;
+      results1 = [];
+      for (i = 0, len = ref.length; i < len; i++) {
+        command = ref[i];
+        results1.push(this.print("1. " + command + "<br>"));
+      }
+      return results1;
+    };
+
+    Terminal.prototype.cd = function() {
+      return this.print("I'm sorry Dave but I can't let you do that...");
+    };
+
+    Terminal.prototype.gandalf = function() {
+      return window.open("https://youtu.be/Sagg08DrO5U");
     };
 
     return Terminal;

@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Logan Martel</title>
+	<title>Logan Martel</title
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="language" content="english"> 
+	<meta name="robots" content="index, follow">
+	<meta name="keywords" content="Logan, Martel, Logan Martel, personal site">
+	<meta name="description" content="Personal site for Logan Martel, Software Engineer. Check it out to learn more about me!">
+	<![if !IE]>
+		<link rel="icon" href="/favicon.png" type="image/x-icon" />
+	<![endif]>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato|Lora|Lora:bolditalic">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato|Lato:bold|Lora|Lora:bolditalic">
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/Person">
+	<meta itemprop="name" content="Logan Martel"/>	
 	<section class="header">
 		<div class="logo">
 			<a href=".">
 				<ul class="full name">
-					<li class="name" id="first"><b>Logan</b></li>
-					<li class="name" id="last"><b>Martel</b></li>
+					<li class="name" id="first"><b itemprop="givenName">Logan</b></li>
+					<li class="name" id="last"><b itemprop="familyName">Martel</b></li>
 				</ul>
 			</a>
 		</div>
@@ -26,7 +36,7 @@
 	</section>
 	<section class="content">
 		<div class="alternate">
-			<h1> Sorry :( mobile version incomplete. Check out the site on a larger screen for the real deal (it has a working terminal :D )!<h1>
+			<h1> Sorry :( mobile version incomplete. Check out the site on a larger screen for the real deal (including a unix-terminal emulator)!<h1>
 		</div>
 		<div class="terminal">
 			<div class="top">
@@ -42,9 +52,9 @@
 			<div class="top">
 				<div id="about">
 					<h1>About Me</h1>
-					<p>Driven by a desire to solve medical problems algorithmically, pursuing Honours Software Engineering at McGill University has lured me from  quiet <i><a href="https://goo.gl/maps/E0xBJ" id="kitimat" target="_tab">Northern BC</a></i> to  bustling <i><a href="https://goo.gl/maps/BPtE7" id="montreal" target="_blanck">Montreal.</a></i> In one year of programming experience, my biomedical aspirations have been swiftly augmented by an emerging portfolio of tech
+					<p>Driven by a desire to solve medical problems algorithmically, pursuing <span itemprop="jobTitle">Honours Software Engineering</span> at <span itemprop="affiliation">McGill University</span> has lured me from  quiet <i><a href="https://goo.gl/maps/E0xBJ" id="kitimat"  target="_tab">Northern BC</a></i> to  bustling <i><a href="https://goo.gl/maps/BPtE7" id="montreal" rel="nofollow" target="_blanck"><span itemprop="addressRegion">Montreal</span></a></i>. In one year of programming, my biomedical aspirations have been swiftly augmented by an emerging portfolio of tech
 					<i><a href="#" class="cmd">projects</a></i>. As a budding hacker, I'm most eager for opportunities in big data (see <i>'<a href="#" class="cmd">interests</a>'</i> on the terminal). </p>
-					<img class="me" src="images/Me.jpg" alt="Personal Pic">
+					<img class="me" src="images/Logan.jpg" itemprop="image" alt="Photo of Logan Martel">
 				</div>
 				<div id="skills">
 					<h1>My Skills</h1>

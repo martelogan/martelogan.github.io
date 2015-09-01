@@ -14,6 +14,7 @@ $body-size: 16px
 $header-size: 3 * $body-size
 $subHeader-size: 1.5 * $body-size
 $byline-size: 0.75 * $body-size
+$terminal-size: 14px
 
 // leading and line-width
 $leading: 1.5
@@ -53,7 +54,7 @@ input
 	background-color: $dark
 	color: invert($dark)
 	font-family: $terminal-text
-	font-size: $byline-size
+	font-size: $terminal-size
 input:focus
 	outline: none
 iframe
@@ -96,6 +97,7 @@ h1
 	font-family: $header-text
 .commands
 	font-size: $subHeader-size
+	font-weight: bold
 	.cmd
 		display: inline
 		margin: 0 0 0 1em
@@ -124,7 +126,7 @@ h1
 	height: 95%
 	width: 35%
 	font-family: $terminal-text
-	font-size: $byline-size
+	font-size: $terminal-size
 	color: invert($dark)
 	border: 1px solid $terminal-gradient
 	border-top: none
@@ -166,10 +168,10 @@ h1
 		position: relative
 		overflow: auto
 	.top
-		height: 43%
+		height: 46%
 	.bottom
 		margin-top: 2%
-		height: 55%
+		height: 53%
 	
 	/* CONTENT TYPES */
 	#about, #projects, #skills, #resume
@@ -178,8 +180,8 @@ h1
 
 	#about
 		.me
-			height: image-height("Me.jpg")
-			width: image-width("Me.jpg")
+			height: image-height("Logan.jpg")
+			width: image-width("Logan.jpg")
 			position: absolute
 			border-radius: 30px
 			margin-left: 12.5%
