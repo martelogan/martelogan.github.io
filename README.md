@@ -1,2 +1,0 @@
-# loganmartel
-Personal Website
